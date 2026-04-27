@@ -68,6 +68,8 @@ El backend opera sin frameworks externos para demostrar la implementación en cr
 
 * **Función:** Convierte el texto legible en bytes puros.
 * **Lógica:** Efectúa desplazamientos de bits (`<< 5` y `>>`) para empaquetar grupos de 5 bits en bytes de 8 bits requeridos por HMAC.
+  * "<<" (Desplazamiento a la izquierda o Left Shift): La expresión << 5 significa que el programa toma los bits (ceros y unos) de una variable y los mueve exactamente 5 posiciones hacia la izquierda. Es el equivalente binario a multiplicar un número.
+  * ">>" (Desplazamiento a la derecha o Right Shift): Mueve los bits hacia la derecha, lo cual es el equivalente binario a dividir un número.
 
 #### ⚙️ calculateCode($secret, $timeSlice)
 
