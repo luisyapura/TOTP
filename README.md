@@ -121,6 +121,8 @@ La aplicación cliente procesa el QR y calcula tokens localmente (offline).
 
 ### 🧠 Arquitectura de _TOTPScannerScreenState
 
+#### Puedes descargar el app directamente del repositorio o [Copilarla tu mismo](/android/readme.md)
+
 #### 📷 Motor de Captura (mobile_scanner)
 
 * Activa la cámara y detecta QR en tiempo real mediante Google ML Kit.
