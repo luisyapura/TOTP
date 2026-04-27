@@ -70,10 +70,12 @@ El sistema debe alojarse en el directorio raíz del servidor web (ej. htdocs, ww
 * [BASE DE DATOS](/maindb.sql)
 * [TOTPCOMPONENT](/TOTP/TOTPComponent.php)
 * [REGISTER](/TOTP/register.php)
+* [VALIDADOR](/TOTP/validador.php)
   
 ```
 /
 ├── TOTPComponent.php    # Contiene la clase matemática pura (Fase 1 de creación).
+├── validador.php        # Contiene el validador y lista de usuarios
 └── register.php         # Archivo principal (UI + Controladores de Sesión y PDO) (Fase 2 de creación).
 
 ```
