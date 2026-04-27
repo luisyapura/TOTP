@@ -53,7 +53,39 @@ El resultado de la función HMAC-SHA-1 es un hash de 20 bytes (160 bits). Dado q
 
 ---
 
-## 🖥️ 2. Arquitectura del Backend (PHP)
+## 🛠️ 2. Preparación del Entorno y Base de Datos
+
+Para ejecutar esta Prueba de Concepto, es necesario configurar la persistencia de datos y la estructura de archivos en el servidor web.
+
+🗄️ Estructura de la Base de Datos (MySQL/MariaDB)
+
+Se requiere una base de datos y una tabla para almacenar las credenciales de los usuarios y su respectiva semilla TOTP. Ejecutar la siguiente consulta en el motor de base de datos antes de iniciar el sistema:
+
+
+
+📁 Estructura de Archivos del Proyecto
+
+El sistema debe alojarse en el directorio raíz del servidor web (ej. htdocs, www o public_html) siguiendo esta jerarquía:
+
+* [BASE DE DATOS](/maindb.sql)
+* [TOTPCOMPONENT](/TOTP/TOTPComponent.php)
+* [REGISTER](/TOTP/register.php)
+  
+```
+/
+├── TOTPComponent.php    # Contiene la clase matemática pura (Fase 1 de creación).
+└── register.php         # Archivo principal (UI + Controladores de Sesión y PDO) (Fase 2 de creación).
+
+```
+
+⚙️ Secuencia de Despliegue
+Crear TOTPComponent.php para definir la lógica criptográfica.
+Crear register.php (o integrarlo como index.php), incluyendo require_once 'TOTPComponent.php' en la primera línea.
+Desplegar los recursos estáticos en las carpetas css y js.
+
+---
+
+## 🖥️ 3. Arquitectura del Backend (PHP)
 
 El backend opera sin frameworks externos para demostrar la implementación en crudo del algoritmo. Se divide en dos partes fundamentales: el almacenamiento (PDO MySQL) y la lógica matemática (TOTPComponent).
 
@@ -80,8 +112,6 @@ El backend opera sin frameworks externos para demostrar la implementación en cr
 
 * **Función:** Validación con tolerancia a desincronización.
 * **Lógica:** Genera tokens para $T$, $T-1$ y $T+1`. Usa `hash_equals()` para mitigar ataques de timing.
-
----
 
 ---
 
